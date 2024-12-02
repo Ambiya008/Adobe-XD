@@ -1,0 +1,87 @@
+Patient Data Viewer
+This is a React project that fetches patient data from a remote API using Axios and displays it on the UI. The data is fetched using Basic Authentication, and the patient details are displayed in a clean, user-friendly interface using Tailwind CSS.
+
+Technologies Used
+React: A JavaScript library for building user interfaces. It's used here for building the component structure and managing state.
+Axios: A promise-based HTTP client for the browser and Node.js, used for making API requests.
+Tailwind CSS: A utility-first CSS framework used for styling the app.
+React Hooks: useState and useEffect hooks are used to manage state and side effects (fetching data).
+Setup Instructions
+Prerequisites
+Before you begin, ensure you have the following installed:
+
+Node.js (v16 or later)
+npm (Node Package Manager)
+1. Clone the Repository
+bash
+Copy code
+git clone <repository_url>
+cd <repository_folder>
+2. Install Dependencies
+Run the following command to install the necessary dependencies for the project:
+
+bash
+Copy code
+npm install
+This will install the required packages, including React, Axios, and Tailwind CSS.
+
+3. Add Your API Credentials
+In the App.jsx file, replace the Authorization header with your correct base64-encoded credentials.
+
+For example:
+
+javascript
+Copy code
+Authorization: 'Basic Y29hbGl0aW9uOnNraWxscy10ZXN0'
+If you're unsure of how to generate the base64-encoded string, you can use any online tool to base64 encode your credentials in the format username:password.
+
+4. Start the Development Server
+Once you have your dependencies installed and API credentials configured, run the following command to start the development server:
+
+bash
+Copy code
+npm start
+This will run the app on http://localhost:3000.
+
+5. View the Application
+After the server starts, open a browser and navigate to http://localhost:3000. You should see the patient data being fetched and displayed, or a loading message if the data is still being fetched.
+
+6. Build for Production (Optional)
+If you want to build the app for production, use the following command:
+
+bash
+Copy code
+npm run build
+This will create a build directory with a production-ready version of the app.
+
+App Structure
+App.jsx: This is the main component that fetches the data using Axios and displays it. It contains state management using the useState hook for holding the patient data and any potential errors.
+PatientDetails.jsx: A separate component that receives the patient data as a prop and displays it in a structured format. It’s responsible for rendering the UI of the patient details.
+Features
+Fetching Data: The app uses Axios to make a GET request to the provided API and fetch patient data.
+Error Handling: The app displays an error message if there's an issue with the API request, such as a 401 Unauthorized error.
+Conditional Rendering: If the data is loading, the app shows a loading spinner. Once data is fetched, it displays the patient details.
+Responsive UI: The app is styled using Tailwind CSS, which ensures the UI looks good on various screen sizes.
+Example of API Request
+This app makes a GET request to the following URL:
+
+bash
+Copy code
+https://fedskillstest.coalitiontechnologies.workers.dev
+It passes the following header for authentication:
+
+javascript
+Copy code
+Authorization: 'Basic Y29hbGl0aW9uOnNraWxscy10ZXN0'
+Where Y29hbGl0aW9uOnNraWxscy10ZXN0 is the base64-encoded value of coalition:skills-test.
+
+Troubleshooting
+1. 401 Unauthorized Error
+If you receive a 401 Unauthorized error, check the following:
+
+Ensure that your base64-encoded credentials are correct.
+Make sure you're passing the credentials in the correct Authorization header format.
+2. CORS Issues
+If you're encountering CORS issues (common when making requests to a third-party API from the frontend), you may need to handle the request from a server-side environment or adjust the API server's CORS settings.
+
+License
